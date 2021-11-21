@@ -11,7 +11,9 @@ class App extends Component {
   };
 
   formSubmitHandler = data => {
-    this.state.contacts.find(contact => contact.name === data.name)
+    this.state.contacts.find(
+      contact => contact.name.toLowerCase() === data.name.toLowerCase(),
+    )
       ? alert('This name already in contacts')
       : this.setState(({ contacts }) => {
           return {
